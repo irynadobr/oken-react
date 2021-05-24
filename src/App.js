@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from "react";
+import Cars from "./components/cars/Cars";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App () {
+    let [counter, setCount] = useState(0);
+    let increment = () => {
+        counter += 100;
+        setCount(counter);
+    }
+    let decrement = () => {
+        counter -= 100;
+        setCount(counter);
+    }
+    let reset = () => {
+        counter = 0;
+        setCount(counter);
+    }
+    return (
+        <div>
+            <div>
+                <br/>
+                <h2>counter is - {counter}</h2>
+                <button onClick={increment}> + 100</button>
+                <button onClick={decrement}> - 100</button>
+                <button onClick={reset}> 0</button>
+            </div>
+            <h1></h1>
+            <div>
+                <Cars/>
+
+            </div>
+        </div>
+    );
 }
-
-export default App;
